@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object_Method</title>
+</head>
+<body><b></b>
+<p>Ability to add 3 students details and their marks in 3 subjects <br>Method to find the student with the least total. <br>Method to find the student with the highest total.
+</p>
+</body>
+<script>
+    let obj = {
+    arr: [],
+    add: function(name, math, eng, phy) {
+      let obj = {};
+      obj.name = name;
+      obj.math = math;
+      obj.eng = eng;
+      obj.phy = phy;
+      this.arr.push(obj);
+    },
+    least: function() {
+      let min = Infinity;
+      let least_student;
+      for (let i = 0; i <= this.arr.length - 1; i++) {
+        let total = this.arr[i].math + this.arr[i].eng + this.arr[i].phy;
+        if (total < min) {
+          min = total;
+          least_student = this.arr[i].name;
+        }
+      }
+      console.log(least_student, min);
+    },
+    highest: function(){
+      let max = -Infinity;
+      let highest_student;
+      for(let i = 0; i <= this.arr.length - 1; i++){
+        let total = this.arr[i].math + this.arr[i].eng + this.arr[i].phy;
+        if(total > max){
+          max = total;
+          highest_student = this.arr[i].name;
+        }
+      }
+      console.log(highest_student, max);
+    }
+    
+  }
+  obj.add("Virat", 93, 95, 75);
+  obj.add("Payal", 89, 80, 33);
+  obj.add("Mahesh", 90, 85, 97);
+  obj.least();
+  obj.highest();
+</script>
+</html>
